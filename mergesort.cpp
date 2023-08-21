@@ -11,12 +11,12 @@ void merge(int arr[], int l, int mid, int r) {
         a[i] = arr[l + i];
     }
     for (int i = 0; i < n2; i++) {
-        b[i] = arr[mid + i + 1]; // Fixed the array name here
+        b[i] = arr[mid + i + 1];
     }
     int i = 0;
     int j = 0;
     int k = l;
-    while (i < n1 && j < n2) { // Fixed the condition here
+    while (i < n1 && j < n2) {
         if (a[i] < b[j]) {
             arr[k] = a[i];
             k++;
@@ -32,8 +32,8 @@ void merge(int arr[], int l, int mid, int r) {
         k++;
         i++;
     }
-    while (j < n2) { // Changed to 'j' here
-        arr[k] = b[j]; // Changed to 'b[j]' here
+    while (j < n2) {
+        arr[k] = b[j];
         k++;
         j++;
     }
@@ -44,15 +44,15 @@ void mergeSort(int arr[], int l, int r) {
         int mid = (l + r) / 2;
         mergeSort(arr, l, mid);
         mergeSort(arr, mid + 1, r);
-        merge(arr, l, mid, r); // Changed to 'merge' here
+        merge(arr, l, mid, r);
     }
 }
 
 void display(int *arr, int n) {
     for (int i = 0; i < n; i++) {
-        cout << arr[i] << " "; // Removed the newline after each element
+        cout << arr[i] << " ";
     }
-    cout << endl; // Added a newline after printing the array
+    cout << endl;
 }
 
 int main() {
