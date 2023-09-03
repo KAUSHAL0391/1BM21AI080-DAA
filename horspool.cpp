@@ -5,10 +5,11 @@ int main()
     int table[126];
     char t[100], p[25];
     int n, i, k, j, m, flag = 0;
-    printf("Enter the Text\n ");gets(t);
+    cout<<"Enter the Text\n ";
+    cin >> t;
     n = strlen(t);
-    printf("Enter the Pattern\n ");
-    gets(p);
+    cout <<"Enter the Pattern\n ";
+    cin >> p;
     m = strlen(p);
     for (i = 0; i <126; i++)
         table[i] = m;
@@ -22,7 +23,7 @@ int main()
             k++;
         if (k == m)
         {
-            printf("The position of the pattern is % d\n ", i - m + 2);
+            cout << "The position of the pattern is "<< i - m + 2 << "\n";
             flag = 1;
             break;
         }
@@ -30,6 +31,6 @@ int main()
             i = i + table[t[i]];
     }
     if (!flag)
-        printf("Pattern is not found in the given text\n ");
+        cout << "Pattern is not found in the given text\n ";
     return 0;
 }
