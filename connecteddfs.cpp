@@ -1,37 +1,43 @@
-#include<stdio.h>
-#include<conio.h>
+#include <iostream>
+using namespace std;
 int a[20][20], reach[20], n;
 void dfs(int v) {
-    int i;
     reach[v] = 1;
-    for (i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         if (a[v][i] && !reach[i]) {
-            printf("\n %d->%d", v, i);
+            cout << " " << v << "->" << i;
             dfs(i);
         }
+    }
 }
-int main(int argc, char **argv) {
-    int i, j, count = 0;
-    printf("\n Enter number of vertices:");
-    scanf("%d", &n);
-    for (i = 1; i <= n; i++) {
+int main() {
+    int count = 0;
+    cout << "\nEnter number of vertices: ";
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
         reach[i] = 0;
-        for (j = 1; j <= n; j++)
+        for (int j = 1; j <= n; j++) {
             a[i][j] = 0;
+        }
     }
-    printf("\n Enter the adjacency matrix:\n");
-    for (i = 1; i <= n; i++)
-        for (j = 1; j <= n; j++)
-            scanf("%d", &a[i][j]);
+    cout << "\nEnter the adjacency matrix:\n";
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            cin >> a[i][j];
+        }
+    }
     dfs(1);
-    printf("\n");
-    for (i = 1; i <= n; i++) {
-        if (reach[i])
+    cout << "\n";
+    
+    for (int i = 1; i <= n; i++) {
+        if (reach[i]) {
             count++;
+        }
     }
-    if (count == n)
-        printf("\n Graph is connected");
-    else
-        printf("\n Graph is not connected");
+    if (count == n) {
+        cout << "\nGraph is connected";
+    } else {
+        cout << "\nGraph is not connected";
+    }
     return 0;
 }
