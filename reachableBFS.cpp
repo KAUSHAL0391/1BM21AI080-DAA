@@ -1,38 +1,40 @@
-#include <stdio.h>
-#include <conio.h>
+#include <iostream>
+using namespace std;
 int a[20][20], q[20], visited[20], n, i, j, f = 0, r = -1;
-void bfs(int v)
-{
-    for (i = 1; i <= n; i++)
-        if (a[v][i] && !visited[i])
+
+void bfs(int v) {
+    for (i = 1; i <= n; i++) {
+        if (a[v][i] && !visited[i]) {
             q[++r] = i;
-    if (f <= r)
-    {
+        }
+    }
+    if (f <= r) {
         visited[q[f]] = 1;
         bfs(q[f++]);
     }
 }
-int main()
-{
+int main() {
     int v;
-    printf("\n Enter the number of vertices:");
-    scanf("%d", &n);
-    for (i = 1; i <= n; i++)
-    {
+    cout << "\nEnter the number of vertices: ";
+    cin >> n;
+    for (i = 1; i <= n; i++) {
         q[i] = 0;
         visited[i] = 0;
     }
-    printf("\n Enter graph data in matrix form:\n");
-    for (i = 1; i <= n; i++)
-        for (j = 1; j <= n; j++)
-            scanf("%d", &a[i][j]);
-    printf("\n Enter the starting vertex:");
-    scanf("%d", &v);
+    cout << "\nEnter graph data in matrix form:\n";
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            cin >> a[i][j];
+        }
+    }
+    cout << "\nEnter the starting vertex: ";
+    cin >> v;
     bfs(v);
-    printf("\n The node which are reachable are:\n");
-    for (i = 1; i <= n; i++)
-        if (visited[i])
-            printf("%d\t", i);
-    getch();
+    cout << "\nThe nodes which are reachable are:\n";
+    for (i = 1; i <= n; i++) {
+        if (visited[i]) {
+            cout << i << "\t";
+        }
+    }
     return 0;
 }
