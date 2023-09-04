@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Function to heapify a subtree rooted at 'root'
 void heapify(int arr[], int n, int root) {
     int largest = root;
     int left = 2 * root + 1;
@@ -22,16 +21,12 @@ void heapify(int arr[], int n, int root) {
     }
 }
 
-// Function to perform heap sort
 void heapSort(int arr[], int n) {
-    // Build a max heap
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arr, n, i);
-
-    // Extract elements one by one
     for (int i = n - 1; i > 0; i--) {
-        swap(arr[0], arr[i]); // Move current root to end
-        heapify(arr, i, 0);   // call max heapify on the reduced heap
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
     }
 }
 
@@ -51,10 +46,9 @@ int main() {
             cin >> arr[i];
         }
     } else if (choice == 2) {
-        // Generate N random integers
-        srand(time(NULL)); // Seed the random number generator
+        srand(time(NULL));
         for (int i = 0; i < N; i++) {
-            arr[i] = rand() % 1000; // Random integers between 0 and 999
+            arr[i] = rand() % 1000;
         }
     } else {
         cout << "Invalid choice. Exiting.\n";
