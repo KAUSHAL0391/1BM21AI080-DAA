@@ -48,8 +48,7 @@ bool solve (int n, int row) {
 }
 int main()
 {
-  ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+
         int n;
         cout<<"Enter the number of queen"<<endl;
         cin >> n;
