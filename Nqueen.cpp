@@ -48,7 +48,7 @@ bool solve (int n, int row) {
 }
 int main()
 {
-
+    
         int n;
         cout<<"Enter the number of queen"<<endl;
         cin >> n;
