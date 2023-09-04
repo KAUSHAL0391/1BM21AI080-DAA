@@ -6,7 +6,6 @@ using namespace std;
 vector<int> subset;
 vector<vector<int>> subsets;
 
-// Function to find all subsets with a given sum
 void findSubsetsWithSum(int arr[], int n, int sum, int currSum, int index) {
     if (currSum == sum) {
         subsets.push_back(subset);
@@ -16,12 +15,8 @@ void findSubsetsWithSum(int arr[], int n, int sum, int currSum, int index) {
     if (index == n || currSum > sum) {
         return;
     }
-
-    // Include the current element in the subset
     subset.push_back(arr[index]);
     findSubsetsWithSum(arr, n, sum, currSum + arr[index], index + 1);
-
-    // Exclude the current element from the subset
     subset.pop_back();
     findSubsetsWithSum(arr, n, sum, currSum, index + 1);
 }
